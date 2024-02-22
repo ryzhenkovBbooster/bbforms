@@ -1,0 +1,17 @@
+version: "4.27"
+services:
+  bot:
+    build: .
+    command: sh -c "python -m main"
+    volumes:
+      - .:/app:rw
+      - my_volume:/otp
+    env_file:
+      - .env
+    restart: always
+
+volumes:
+  my_volume:
+    driver: local
+
+
